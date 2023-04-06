@@ -1,0 +1,21 @@
+::placeholder {
+    color: red;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: red;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: red;
+  }
+
+.button-end{
+    display: flex;
+    justify-content: end;
+  }
+
+.small-btn{
+    width: 15%;
+}
