@@ -10,12 +10,16 @@
         </div>
         <div class="form-input">
             <input type="text" name="phoneNumber" class="form-control" placeholder="Enter your mobile number" [(ngModel)]="phoneNumber">
+            <span *ngIf="correctFormat else notProper">{{ correctFormat }}</span> 
+            <ng-template #notProper>Invalid format or number</ng-template> <!-- displayes error message always (have to change it only when error)-->
         </div>
         <div class="mb-3 text-end">
             <button class="btn btn-secondary mt-4" (click)="getOTP()">Get OTP</button>
         </div>
         <div class="form-input">
             <input type="text" name="otp" class="form-control" placeholder="Enter OTP" [(ngModel)]="otp">
+            <span *ngIf="otpValidation else wrongOtp"> {{ otpValidation }} </span> 
+            <ng-template #wrongOtp>Wrong OTP</ng-template> <!-- displayes error message (have to change it only when error) -->
         </div>
         <div class="mb-3 text-center">
             <button class="btn btn-secondary mt-4 small-btn" (click)="checkOTP()">Go</button>
