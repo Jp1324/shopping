@@ -14,7 +14,7 @@
             <ng-template #notProper>Invalid format or number</ng-template> <!-- displayes error message always (have to change it only when error)-->
         </div>
         <div class="mb-3 text-end">
-            <button class="btn btn-secondary mt-4" (click)="getOTP()">Get OTP</button>
+            <button class="btn btn-secondary mt-4 small-btn" (click)="getOTP()">Get OTP</button>
         </div>
         <div class="form-input">
             <input type="text" name="otp" class="form-control" placeholder="Enter OTP" [(ngModel)]="otp">
