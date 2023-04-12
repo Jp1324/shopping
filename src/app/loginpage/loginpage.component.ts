@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from './userModel';
+import { Observable } from 'rxjs';
+import { EsServiceService } from '../service/es-service.service';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-loginpage',
@@ -19,6 +24,17 @@ export class LoginpageComponent implements OnInit {
   otpValidation = false;
   requiredForm: FormGroup;
 
+  private mobNo: Observable <any>;
+  private mobNoData:any[];
+  private loginnav: Observable<any>;
+  public loginData:any[];
+  private domainURL:string;
+
+  constructor(private fb: FormBuilder, private esService:EsServiceService,private http:HttpClient,
+    private router:Router) {
+      this.domainURL = esService.base_path;
+  }
+  
   ngOnInit(){   
     this.requiredForm = this.fb.group({
       phoneNumber: ["",
@@ -32,8 +48,24 @@ export class LoginpageComponent implements OnInit {
     });
   }
 
+  header = {
+    headers: new HttpHeaders(
+      {'Content-type':'application/json'}
+    )      
+  }
+
   getOTP() {
     console.log(this.requiredForm.get("phoneNumber")?.getRawValue());
+    let otpData = {
+      "phone": this.requiredForm.get("phoneNumber")?.getRawValue()
+    }
+
+    this.mobNo = this.http.post(this.domainURL+'/login/genotpweb',JSON.stringify(otpData), this.header);
+    this.mobNo.subscribe( data => {
+      this.mobNoData = data;
+      console.log("otp Res >> " + JSON.stringify(this.mobNoData));
+    });
+    return false;
   }
 
   checkOTP() {
@@ -42,18 +74,17 @@ export class LoginpageComponent implements OnInit {
     otp: this.requiredForm.get("otp")?.getRawValue()
    } as User;
 
-   this.otp =  this.requiredForm.get("otp")?.getRawValue();
-
-    if(this.otp == this.otpToCompare) {
-      // Put navigation code here
-      console.log("correct");
-    } else if(this.otp == null ) {
-      console.log("the otp field is empty");
-    } else {
-      console.log("");
+   let login = {
+    "phone": this.requiredForm.get("phoneNumber")?.getRawValue(),
+    "otp": this.requiredForm.get("otp")?.getRawValue()
     }
+
+    this.loginnav = this.http.post(this.domainURL+'/login',JSON.stringify(login), this.header);
+
+    this.loginnav.subscribe(async data => {
+      this.loginData = data;
+      console.log("login Res Data >> " + JSON.stringify(this.loginData));
+    });
   }
 
-  constructor(private fb: FormBuilder) {
-  }
 }
