@@ -7,6 +7,7 @@ import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
@@ -19,9 +20,6 @@ export class LoginpageComponent implements OnInit {
   phoneNumber: any;
   userInfo= {} as User;
   otp: any;
-  otpToCompare = "1234" //this is the variable for getting the otp from service.
-  correctFormat = true;
-  otpValidation = false;
   requiredForm: FormGroup;
 
   private mobNo: Observable <any>;
@@ -84,6 +82,7 @@ export class LoginpageComponent implements OnInit {
     this.loginnav.subscribe(async data => {
       this.loginData = data;
       console.log("login Res Data >> " + JSON.stringify(this.loginData));
+      //navigation part here
     });
   }
 

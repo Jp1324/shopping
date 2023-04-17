@@ -5,7 +5,7 @@
         "price": 100000,
         "imagePath": "./assets/1.png",
         "quantity": 10,
-        "expireDate": "Jan 20, 2039"
+        "expireDate": "Jan 14, 2029"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "price": 200000,
         "imagePath": "./assets/2.jpg",
         "quantity": 10,
-        "expireDate": "Mar 14, 2029"
+        "expireDate": "Jan 14, 2029"
     },
     {
         "id": 3,
@@ -21,14 +21,6 @@
         "price": 50000,
         "imagePath": "./assets/3.jpg",
         "quantity": 10,
-        "expireDate": "May 14, 2029"
-    },
-    {
-        "id": 4,
-        "name": "Kia",
-        "price": 1120000,
-        "imagePath": "./assets/3.jpg",
-        "quantity": 1,
-        "expireDate": "Jul 18, 2030"
+        "expireDate": "Jan 14, 2029"
     }
 ]

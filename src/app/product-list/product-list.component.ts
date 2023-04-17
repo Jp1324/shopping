@@ -4,7 +4,10 @@ import productListData from './product-list.json';
 interface Product {
   id: Number;  
   name: String;  
-  price: Number;
+  price: number;
+  imagePath: String,
+  quantity: number,
+  expireDate: String
 }
 
 @Component({
@@ -14,5 +17,9 @@ interface Product {
 })
 
 export class ProductListComponent {
+
   products: Product[] = productListData;
+  count = Object.keys(this.products).length;  
+
+  totalPrice = this.products.reduce((sum, item)=>sum + item.price,0);
 }

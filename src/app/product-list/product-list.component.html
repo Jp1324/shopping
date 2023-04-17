@@ -1,6 +1,48 @@
-
-<div *ngFor="let product of products ">
-    <p>{{ product.id }}</p>
-    <p>{{ product.name }}</p>
-    <p>{{ product.price }}</p>
+<app-top-nav></app-top-nav>
+<!-- If json is empty -->
+<div class="container-fluid blockquote text-center mrg-top" *ngIf="count <= 0">
+    <h3 class="mb-0"> Welcome</h3>
+    <small class="text-muted">Scan to add to cart</small>
 </div>
+<div class="container" *ngIf="count > 0">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th class="align-middle text-center">
+                    Name
+                </th>
+                <th class="align-middle text-center">
+                    Quantity
+                </th>
+                <th class="align-middle text-center">
+                    Price
+                </th>
+                <th class="align-middle text-center">
+                    Expire date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products ">
+                <td class="passportImg">
+                    <!-- <img src='{{ product.imagePath }}' class="img-thumbnail"> -->
+                    <div class="container col-md-6 offset-md-3">
+                        <span>{{ product.name }}</span>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <span>{{ product.quantity }}</span>
+                </td>
+                <td class="align-middle text-center">
+                    <span>
+                        {{ product.price }}
+                    </span>
+                </td>
+                <td class="align-middle text-center">
+                    {{ product.expireDate}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-bottom-nav></app-bottom-nav>

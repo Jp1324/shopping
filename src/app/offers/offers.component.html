@@ -1,0 +1,48 @@
+<!-- top navigation -->
+<app-top-nav></app-top-nav>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="align-middle text-center">
+                    Name
+                </th>
+                <th class="align-middle text-center">
+                    Current Price 
+                </th>
+                <th class="align-middle text-center">
+                    Discounted Price
+                </th>
+                <th class="align-middle text-center">
+                    Percentage
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let productOffer of productOfferData">
+                <td>
+                    <div class="align-middle text-center">
+                        <span>{{ productOffer.name}}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="align-middle text-center">
+                        <span>{{ productOffer.currentPrice }}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="align-middle text-center">
+                        <span>{{ productOffer.discountedPrice }}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="align-middle text-center">
+                        <span>{{ productOffer.discount }}</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- bootom navigation -->
+<app-bottom-nav></app-bottom-nav>

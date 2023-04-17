@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Mercedes-Benz",
+        "currentPrice": 100000,
+        "discount": "12%",
+        "discountedPrice":"88000"
+    },
+    {
+        "id": 2,
+        "name": "BMW",
+        "currentPrice": 200000,
+        "discount": "45%",
+        "discountedPrice":"110000"
+    },
+    {
+        "id": 3,
+        "name": "Audi",
+        "currentPrice": 500000,
+        "discount": "26%",
+        "discountedPrice":"370000"
+    },
+    {
+        "id": 4,
+        "name": "Kia",
+        "currentPrice": 1120000,
+        "discount": "35%",
+        "discountedPrice":"728000"
+    },
+    {
+        "id": 5,
+        "name": "Hyndai",
+        "currentPrice": 1220000,
+        "discount": "35%",
+        "discountedPrice":"793000"
+    },
+    {
+        "id": 6,
+        "name": "Maruti",
+        "currentPrice": 1120000,
+        "discount": "35%",
+        "discountedPrice":"728000"
+    },
+    {
+        "id": 7,
+        "name": "Mercedes-Benz",
+        "currentPrice": 100000,
+        "discount": "12%",
+        "discountedPrice":"88000"
+    },
+    {
+        "id": 8,
+        "name": "BMW",
+        "currentPrice": 200000,
+        "discount": "45%",
+        "discountedPrice":"110000"
+    }
+]
