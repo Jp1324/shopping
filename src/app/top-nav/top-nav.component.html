@@ -44,7 +44,9 @@
                 <div class="col-sm">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item navbar-right">
-                            <i class='fa-solid fa-cart-shopping' [attr.value]="productCountForTopNav"></i>
+                            <a routerLink="/checkOutPage">
+                                <i class='fa-solid fa-cart-shopping' [attr.value]="productCountForTopNav"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>

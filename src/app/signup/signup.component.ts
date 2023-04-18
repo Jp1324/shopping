@@ -51,7 +51,6 @@ export class SignupComponent {
     )      
   }
 
-  // recheck this
   get email(): any {
     return this.registerForm.get('email');
   }

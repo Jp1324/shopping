@@ -16,8 +16,7 @@
                 <div class="form-input">
                     <input type="text" name="phoneNumber" class="form-control" placeholder="Enter your mobile number"
                         formControlName="phoneNumber">
-                    <span
-                        *ngIf="requiredForm.controls['phoneNumber'].invalid && requiredForm.controls['phoneNumber'].touched">Invalid
+                    <span class="d-block invalid-feedback" *ngIf="requiredForm.controls['phoneNumber'].invalid && requiredForm.controls['phoneNumber'].touched">Invalid
                         Phone Number format <!-- can move this to bundle--></span>
                 </div>
                 <div class="mb-3 text-end">
@@ -25,11 +24,11 @@
                 </div>
                 <div class="form-input">
                     <input type="text" name="otp" class="form-control" placeholder="Enter OTP" formControlName="otp">
-                    <span *ngIf="requiredForm.controls['otp'].invalid && requiredForm.controls['otp'].touched">Invalid
+                    <span class="d-block invalid-feedback" *ngIf="requiredForm.controls['otp'].invalid && requiredForm.controls['otp'].touched">Invalid
                         OTP <!-- can move this to bundle--></span>
                 </div>
                 <div class="mb-3 text-center">
-                    <button class="btn btn-secondary mt-4 small-btn" (click)="checkOTP()">Go</button>
+                    <button class="btn btn-secondary mt-4 small-btn" routerLink="/productListPage" (click)="checkOTP()">Go</button>
                 </div>
             </form>
             <div class="mb-3 text-center">
