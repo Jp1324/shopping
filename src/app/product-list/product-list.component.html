@@ -4,7 +4,7 @@
     <h3 class="mb-0"> Welcome</h3>
     <small class="text-muted">Scan to add to cart</small>
 </div>
-<div class="container" *ngIf="count > 0">
+<div class="container p-3 mx-auto" *ngIf="count > 0">
     <table class="table table-borderless">
         <thead>
             <tr>
@@ -18,28 +18,62 @@
                     Price
                 </th>
                 <th class="align-middle text-center">
-                    Expire date
+                    Expiry date
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let product of products ">
-                <td class="passportImg">
-                    <!-- <img src='{{ product.imagePath }}' class="img-thumbnail"> -->
-                    <div class="container col-md-6 offset-md-3">
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.name" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
                         <span>{{ product.name }}</span>
                     </div>
                 </td>
                 <td class="align-middle text-center">
-                    <span>{{ product.quantity }}</span>
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.quantity" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.quantity }}</span>
+                    </div>
                 </td>
                 <td class="align-middle text-center">
-                    <span>
-                        {{ product.price }}
-                    </span>
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.price" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.price }}</span>
+                    </div>
                 </td>
                 <td class="align-middle text-center">
-                    {{ product.expireDate}}
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.expireDate" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.expireDate }}</span>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <div>
+                            <a>
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a (click)="product.isEdit = false">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <a (click)="onEdit(product)">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
         </tbody>
