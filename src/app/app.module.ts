@@ -18,11 +18,16 @@ import { MatInputModule } from '@angular/material/input';
 import { SignupComponent } from './signup/signup.component';
 import { OffersComponent } from './offers/offers.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CheckoutComponent } from './checkout/checkout.component';
 
  
 const appRoutes: Routes = [
+  { path: 'homePage', component: HomePageComponent},
+  { path: 'signupPage', component: SignupComponent },
+  { path: 'loginPage', component: LoginpageComponent },
   { path: 'productListPage', component: ProductListComponent },
-  { path: 'loginPage', component: LoginpageComponent }
+  { path: 'offerPage', component: OffersComponent },
+  { path: 'checkOutPage', component: CheckoutComponent },
 ];
 
 @NgModule({
@@ -34,7 +39,8 @@ const appRoutes: Routes = [
     HomePageComponent,
     BottomNavComponent,
     SignupComponent,
-    OffersComponent
+    OffersComponent,
+    CheckoutComponent
   ],
 
   imports: [

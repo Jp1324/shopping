@@ -21,15 +21,7 @@ interface ProductOffers {
 })
 
 
-export class OffersComponent implements OnInit{
-
-  displayedColumns = ['name','currentPrice','discountedPrice','discount'];
-  dataSource = new MatTableDataSource<ProductOffers>(productOfferData);
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+export class OffersComponent {
 
   productOfferData: ProductOffers[] = productOfferData;
 

@@ -1,0 +1,28 @@
+<!-- top navigation -->
+<app-top-nav></app-top-nav>
+<div class="container">
+    <div class="container col-md-6 offset-md-3 mt-5">
+        <form class="row g-3" [formGroup]="checkoutForm">
+            <div class="col-md-12" style="text-align: center;">
+                <div class="row">
+                    <div class="col">
+                        <h1 for="id_number" class="form-label center" style="text-align: end; padding: 2%;">Mobile Number</h1>
+                    </div>
+                    <div class="col">
+                        <input formControlName="number" type="text" class="form-control" id="id_number">
+                        <div *ngIf="number.touched && number.errors?.required" class="d-block invalid-feedback">Provide your
+                            mobile number.</div>
+                        <div *ngIf="number.errors?.pattern" class="d-block invalid-feedback">Invalid mobile number</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="text-align: center;">
+                <h1 class="form-label">Total Price: {{ totalPriceInCheckIn | number }}</h1>
+            </div>
+            <div class="col-md-12" style="text-align: center;">
+                <button [disabled]="checkoutForm.invalid" type="submit" class="btn btn-outline-secondary px-5"
+                    style="color: red;" (click)="sendReceipt()">Send Receipt</button>
+            </div>
+        </form>
+    </div>
+</div>

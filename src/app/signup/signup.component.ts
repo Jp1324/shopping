@@ -51,16 +51,17 @@ export class SignupComponent {
     )      
   }
 
-  get address(): any {
-    return this.registerForm.get('address');
-  }
-  get pincode(): any {
-    return this.registerForm.get('pincode');
-  }
+  // recheck this
   get email(): any {
     return this.registerForm.get('email');
   }
   get number(): any {
     return this.registerForm.get('number');
+  }
+  get address(): any {
+    return this.registerForm.get('address');
+  }
+  get pincode(): any {
+    return this.registerForm.get('pincode');
   }
 }
