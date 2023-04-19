@@ -21,9 +21,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComplimentsComponent } from './compliments/compliments.component';
 import { CartComponent } from './cart/cart.component';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NZ_ICONS } from 'ng-zorro-antd/icon';
-import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 
@@ -59,8 +56,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
-    AppRoutingModule,
-    NzButtonModule
+    AppRoutingModule
   ],
 
   providers: [],

@@ -59,7 +59,7 @@
                 <td class="align-middle text-center">
                     <div *ngIf="product.isEdit">
                         <div>
-                            <a>
+                            <a (click)="onTableSave(product)">
                                 <i class="fa fa-check" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div *ngIf="!product.isEdit">
-                        <a (click)="onEdit(product)">
+                        <a (click)="onTableEdit(product)">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                     </div>

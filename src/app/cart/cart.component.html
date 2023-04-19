@@ -1,1 +1,82 @@
-<p>cart works!</p>
+<app-top-nav></app-top-nav>
+<!-- If json is empty -->
+<div class="container-fluid blockquote text-center mrg-top" *ngIf="productCountForcart <= 0">
+    <h3 class="mb-0"> Welcome</h3>
+    <small class="text-muted">Scan to add to cart</small>
+</div>
+<div class="container p-3 mx-auto" *ngIf="productCountForcart > 0">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th class="align-middle text-center">
+                    Name
+                </th>
+                <th class="align-middle text-center">
+                    Quantity
+                </th>
+                <th class="align-middle text-center">
+                    Price
+                </th>
+                <th class="align-middle text-center">
+                    Expiry date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productInCart ">
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.name" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.name }}</span>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.quantity" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.quantity }}</span>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.price" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.price }}</span>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <input type="text" [(ngModel)]="product.expireDate" class="form-control"/>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <span>{{ product.expireDate }}</span>
+                    </div>
+                </td>
+                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit">
+                        <div>
+                            <a (click)="onTableCartSave(product)">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <a (click)="product.isEdit = false">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div *ngIf="!product.isEdit">
+                        <a (click)="onTableCartEdit(product)">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-bottom-nav></app-bottom-nav>

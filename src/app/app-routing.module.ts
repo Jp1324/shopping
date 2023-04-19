@@ -6,6 +6,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { OffersComponent } from './offers/offers.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CartComponent } from './cart/cart.component';
+import { ComplimentsComponent } from './compliments/compliments.component';
 
 
 const appRoutes: Routes = [
@@ -16,6 +18,8 @@ const appRoutes: Routes = [
     { path: 'productListPage', component: ProductListComponent },
     { path: 'offerPage', component: OffersComponent },
     { path: 'checkOutPage', component: CheckoutComponent },
+    { path: 'cart', component: CartComponent },
+    { path: 'complimentsPage', component: ComplimentsComponent}
   ];
 
   @NgModule({

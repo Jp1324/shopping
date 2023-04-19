@@ -1,8 +1,6 @@
 import { Component,OnInit,ViewChild } from '@angular/core';
 import { ProductListComponent } from '../product-list/product-list.component';
 import productOfferData from './offers.json';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 
 interface ProductOffers {
   id: Number;  
