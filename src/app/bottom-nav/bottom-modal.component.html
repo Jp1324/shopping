@@ -1,16 +1,16 @@
-
-<h1 mat-dialog-title class="mat-mdc-dialog-title mdc-dialog__title">Help</h1>
-<div mat-dialog-content class="mat-mdc-dialog-content mdc-dialog__content">
-  <form action="">
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-  </form>
+<h1 mat-dialog-title>Help</h1>
+<div mat-dialog-content style="text-align: center;">
+  <mat-form-field>
+    <mat-label>Cars</mat-label>
+    <select matNativeControl required>
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+  </mat-form-field>
 </div>
-<div mat-dialog-actions class="mdc-dialog__content">
-    <button mat-button class="btn btn-outline-secondary">No Thanks</button>
-    <button mat-button class="btn btn-outline-secondary">Okay</button>
+<div mat-dialog-actions>
+  <button mat-button class="col" color="primary">Okay</button>
+  <button mat-button class="col">Cancel</button>
 </div>

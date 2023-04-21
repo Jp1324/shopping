@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProductListComponent } from '../product-list/product-list.component';
 
+
 @Component({
   selector: 'app-bottom-nav',
   templateUrl: './bottom-nav.component.html',
@@ -9,7 +10,6 @@ import { ProductListComponent } from '../product-list/product-list.component';
 })
 
 export class BottomNavComponent {
-  
   productCount: number;
   totalPrice: number;
 
@@ -33,8 +33,9 @@ export class BottomNavComponent {
 
 export class BottomModal {
   constructor(
-    public dialogRef: MatDialogRef<BottomModal>
-  ) {}
+    public dialogRef: MatDialogRef<BottomModal>) {
+
+  }
 }
 
 

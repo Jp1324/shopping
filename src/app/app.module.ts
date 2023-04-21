@@ -2,32 +2,30 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+
+// All the component imports
+import { LoginpageComponent } from './loginpage/loginpage.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BottomNavComponent } from './bottom-nav/bottom-nav.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { BottomModal, BottomNavComponent } from './bottom-nav/bottom-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { SignupComponent } from './signup/signup.component';
 import { OffersComponent } from './offers/offers.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComplimentsComponent } from './compliments/compliments.component';
 import { CartComponent } from './cart/cart.component';
-import { IconDefinition } from '@ant-design/icons-angular';
-import * as AllIcons from '@ant-design/icons-angular/icons';
 
-const antDesignIcons = AllIcons as {
-  [key: string]: IconDefinition;
-};
-const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
+//Angular material imports 
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list'
 
 
 @NgModule({
@@ -42,21 +40,23 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     OffersComponent,
     CheckoutComponent,
     ComplimentsComponent,
-    CartComponent
+    CartComponent,
+    BottomModal
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    MatDialogModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule,
-    AppRoutingModule
+    MatDialogModule,
+    MatButtonModule,
+    MatGridListModule
   ],
 
   providers: [],
