@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Mercedes-Benz",
+        "price": 100000,
+        "compliment": "Suv kit worth 10,000",
+        "endDate": "Jan 20, 2039",
+        "isEdit": false
+    },
+    {
+        "id": 2,
+        "name": "BMW",
+        "price": 200000,
+        "compliment": "Twin turbo mufler kit worth 5,000",
+        "endDate": "Mar 14, 2029",
+        "isEdit": false
+    },
+    {
+        "id": 3,
+        "name": "Audi",
+        "price": 50000,
+        "compliment": "16inches wide tyre worth 30,000",
+        "endDate": "May 14, 2036",
+        "isEdit": false
+    },
+    {
+        "id": 4,
+        "name": "Kia",
+        "price": 1120000,
+        "compliment": "Bose boom audio speaker worth 75,000 ",        
+        "endDate": "Jul 18, 2030",
+        "isEdit": false
+    },
+    {
+        "id": 5,
+        "name": "Hyndai",
+        "price": 1120000,
+        "compliment": "10 inchs display",        
+        "endDate": "Jul 18, 2030",
+        "isEdit": false
+    }
+]

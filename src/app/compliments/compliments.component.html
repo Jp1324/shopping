@@ -1,2 +1,25 @@
 <app-top-nav></app-top-nav>
+<div class="container-fluid blockquote text-center mrg-top" *ngIf="count <= 0">
+    <h3 class="mb-0"> No compliments for the day</h3>
+</div>
+<div class="container p-3 mx-auto" *ngIf="count > 0">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Complement</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let compliment of complimentlist ">
+            <th scope="row">{{ compliment.id }}</th>
+            <td>{{ compliment.name }}</td>
+            <td>{{ compliment.compliment }}</td>
+            <td>{{ compliment.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
 <app-bottom-nav></app-bottom-nav>
