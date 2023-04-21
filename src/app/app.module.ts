@@ -6,7 +6,7 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 
 // All the component imports
 import { LoginpageComponent } from './loginpage/loginpage.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { EditOtpModal, ProductListComponent } from './product-list/product-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -41,7 +41,8 @@ import { MatGridListModule } from '@angular/material/grid-list'
     CheckoutComponent,
     ComplimentsComponent,
     CartComponent,
-    BottomModal
+    BottomModal,
+    EditOtpModal
   ],
 
   imports: [
