@@ -56,23 +56,17 @@
                         <span>{{ product.expireDate }}</span>
                     </div>
                 </td>
-                <td class="align-middle text-center">
-                    <div *ngIf="product.isEdit">
-                        <div>
-                            <a (click)="onTableCartSave(product)">
-                                <i class="fa fa-check" aria-hidden="true"></i>
-                            </a>
+                                <td class="align-middle text-center">
+                    <div *ngIf="product.isEdit" class="row">
+                        <div class="col my-1">
+                            <button (click)="onTableCartSave(product)" class="btn btn-success btn-sm">Save </button>
                         </div>
-                        <div>
-                            <a (click)="product.isEdit = false">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </a>
+                        <div class="col my-1">
+                            <button (click)="product.isEdit = false" class="btn btn-danger btn-sm">Cancel</button>
                         </div>
                     </div>
                     <div *ngIf="!product.isEdit">
-                        <a (click)="onTableCartEdit(product)">
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a>
+                        <button (click)="onTableCartEdit(product)" class="btn btn-primary btn-sm">Edit</button>
                     </div>
                 </td>
             </tr>
