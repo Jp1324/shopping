@@ -65,8 +65,13 @@
                             <button (click)="product.isEdit = false" class="btn btn-danger btn-sm">Cancel</button>
                         </div>
                     </div>
+                    <!-- open the edit table directly -->
+                    <!-- <div *ngIf="!product.isEdit">
+                        <button (click)="openDialog(product)" class="btn btn-primary btn-sm">Edit</button>
+                    </div> -->
+                    <!-- open the pop up -->
                     <div *ngIf="!product.isEdit">
-                        <button (click)="openDialog()" class="btn btn-primary btn-sm">Edit</button>
+                        <button (click)="onTableEdit(product)" class="btn btn-primary btn-sm">Edit</button>
                     </div>
                 </td>
             </tr>

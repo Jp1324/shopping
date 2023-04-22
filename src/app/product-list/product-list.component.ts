@@ -28,6 +28,7 @@ export class ProductListComponent {
   constructor(public dialog: MatDialog) {}
 
   onTableEdit(item: any) {
+    debugger;
     this.products.forEach(element => {
       element.isEdit = false;
     });
@@ -39,9 +40,10 @@ export class ProductListComponent {
     item.isEdit = false;
   }
 
-  openDialog(): void {
+  openDialog(item:any): void {
     const dialogRef = this.dialog.open(EditOtpModal, {
-      width: '350px'
+      width: '350px',
+      data: item
     });
   }
 }
@@ -52,8 +54,9 @@ export class ProductListComponent {
 })
 
 export class EditOtpModal {
-  constructor(
-    public dialogRef: MatDialogRef<EditOtpModal>, private fb: FormBuilder ) {   
+  constructor(public dialogRef: MatDialogRef<EditOtpModal>, 
+    private fb: FormBuilder) {
+      // this.onClickFunction.onTableEdit(item);
     }
 
   registerForm: FormGroup = this.fb.group({
@@ -62,6 +65,10 @@ export class EditOtpModal {
 
   get number(): any {
     return this.registerForm.get('number');
+  }
+
+  editTableClose() {
+    // this.onClickFunction.onTableEdit();
   }
 
 }
