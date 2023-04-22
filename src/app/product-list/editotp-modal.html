@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Enter OTP</h1>
 <div mat-dialog-content style="text-align: center;">
   <mat-form-field [formGroup]="registerForm" style="width: 100%;">
-    <input formControlName="number" [class.is-invalid]="number.touched && number.invalid && number.errors" type="text"
+    <input style="background-color: white !important;" formControlName="number" [class.is-invalid]="number.touched && number.invalid && number.errors" type="text"
         class="form-control" id="id_number">
     <div *ngIf="number.touched && number.errors?.required" class="d-block invalid-feedback">Provide otp.</div>
     <div *ngIf="number.errors?.pattern" class="d-block invalid-feedback">Invalid otp</div>

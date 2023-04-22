@@ -8,4 +8,9 @@
     left:-8px;
     top:-10px;
     opacity:0.9;
-    }
+}
+
+.navbar-top-bg-border {
+    background-color: #83d3d4;
+    border-bottom: 2px solid #896f6d;
+}

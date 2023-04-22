@@ -43,8 +43,9 @@
             <div *ngIf="pincode.touched && pincode.errors?.required" class="d-block invalid-feedback">Provide your pincode</div>
         </div>
         <div class="col-md-6 mt-4">
-            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary px-5"
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary px-5 mx-1"
                 (click)="registerFormSubmit()">Submit</button>
+            <button type="submit" class="btn btn-outline-primary px-5 mx-1" routerLink="/homePage">Cancel</button>
         </div>
     </form>
 </div>

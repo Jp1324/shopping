@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import productListData from './product-list.json';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -28,7 +28,6 @@ export class ProductListComponent {
   constructor(public dialog: MatDialog) {}
 
   onTableEdit(item: any) {
-    debugger;
     this.products.forEach(element => {
       element.isEdit = false;
     });
@@ -41,7 +40,6 @@ export class ProductListComponent {
   }
 
   openDialog(item:any): void {
-    debugger;
     const dialogRef = this.dialog.open(EditOtpModal, {
       width: '350px',
       data: item
@@ -52,14 +50,14 @@ export class ProductListComponent {
 @Component({
   selector: 'eidtotp-modal',
   templateUrl: 'editotp-modal.html',
-  providers: [ProductListComponent]
+  providers: [ ProductListComponent ]
 })
 
 export class EditOtpModal {
   constructor(public productList: ProductListComponent, 
     @Inject(MAT_DIALOG_DATA) public data: ProductListComponent, 
     public dialogRef: MatDialogRef<EditOtpModal>, 
-    private fb: FormBuilder,) {}
+    private fb: FormBuilder) {}
 
   registerForm: FormGroup = this.fb.group({
     number: ['', [Validators.required, Validators.minLength(4), Validators.pattern("^((\\+91-?)|0)?[0-9]{4}$")]],

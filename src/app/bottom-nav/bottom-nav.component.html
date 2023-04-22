@@ -1,21 +1,27 @@
-<nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-light border-top">
+<nav class="navbar fixed-bottom navbar-expand-sm navbar-bottom-bg-border">
     <div class="container">
         <div class="col-lg-12">
             <div class="row">
                 <div class="col" style="padding: 5px;text-align: center;">
                     <span style="font-size: 25px;">
-                        Total Quantity : {{ productCount }}
+                        Total Quantity :
+                    </span>
+                    <span style="font-size: 25px;" class="label-red">
+                        {{ productCount }}
                     </span>
                 </div>
                 <div class="col" style="padding: 5px;text-align: center;">
                     <span style="font-size: 25px;">
-                        Total Price : {{ totalPrice }}
+                        Total Price :
+                    </span>
+                    <span style="font-size: 25px;" class="label-red">
+                        {{ totalPrice }}
                     </span>
                 </div>
             </div>
             <div class="row" style="text-align: center;">
                 <div class="col py-2">
-                    <button mat-raised-button (click)="openDialog()">Help</button>
+                    <button mat-raised-button (click)="openDialog()" style="background-color: #008e5b;color: white;">Help</button>
                 </div>
                 <div class="col py-2">
                     <button mat-raised-button color="primary" routerLink="/offerPage">Offers</button>

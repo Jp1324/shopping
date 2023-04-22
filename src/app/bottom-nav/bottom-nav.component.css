@@ -1,0 +1,9 @@
+.navbar-bottom-bg-border {
+    background-color: #83d3d4;
+    border-top: 2px solid #896f6d;
+    z-index: 1000;
+}
+
+.label-red {
+    color: #896f6d;
+}
