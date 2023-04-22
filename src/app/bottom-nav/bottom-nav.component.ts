@@ -33,9 +33,12 @@ export class BottomNavComponent {
 
 export class BottomModal {
   constructor(
-    public dialogRef: MatDialogRef<BottomModal>) {
+    public dialogRef: MatDialogRef<BottomModal>) {}
 
-  }
+    helpModalClose(){
+      this.dialogRef.close();
+    }
+
 }
 
 

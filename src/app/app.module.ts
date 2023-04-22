@@ -18,7 +18,7 @@ import { OffersComponent } from './offers/offers.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComplimentsComponent } from './compliments/compliments.component';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent, EditOtpModalInCart } from './cart/cart.component';
 
 //Angular material imports 
 import { MatInputModule } from '@angular/material/input';
@@ -42,7 +42,8 @@ import { MatGridListModule } from '@angular/material/grid-list'
     ComplimentsComponent,
     CartComponent,
     BottomModal,
-    EditOtpModal
+    EditOtpModal,
+    EditOtpModalInCart
   ],
 
   imports: [

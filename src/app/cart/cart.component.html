@@ -65,8 +65,11 @@
                             <button (click)="product.isEdit = false" class="btn btn-danger btn-sm">Cancel</button>
                         </div>
                     </div>
-                    <div *ngIf="!product.isEdit">
+                    <!-- <div *ngIf="!product.isEdit">
                         <button (click)="onTableCartEdit(product)" class="btn btn-primary btn-sm">Edit</button>
+                    </div> -->
+                    <div *ngIf="!product.isEdit">
+                        <button (click)="openDialog(product)" mat-button color="primary">Edit</button>
                     </div>
                 </td>
             </tr>
