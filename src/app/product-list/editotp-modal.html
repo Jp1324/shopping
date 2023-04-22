@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>Enter OTP</h1>
 <div mat-dialog-content style="text-align: center;">
-  <mat-form-field [formGroup]="registerForm">
-    <input formControlName="number" [class.is-invalid]="number.touched && number.invalid" type="text"
+  <mat-form-field [formGroup]="registerForm" style="width: 100%;">
+    <input formControlName="number" [class.is-invalid]="number.touched && number.invalid && number.errors" type="text"
         class="form-control" id="id_number">
     <div *ngIf="number.touched && number.errors?.required" class="d-block invalid-feedback">Provide otp.</div>
     <div *ngIf="number.errors?.pattern" class="d-block invalid-feedback">Invalid otp</div>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button class="col" color="primary">Okay</button>
-  <button mat-button class="col">Cancel</button>
+  <button [disabled]="registerForm.invalid" mat-button class="col" color="primary" (click)="editTableClose()">Okay</button>
+  <button mat-button class="col" (click)="closeModal()">Cancel</button>
 </div>

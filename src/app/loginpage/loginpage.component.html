@@ -3,11 +3,11 @@
         <div>
             <h1 class="card-title" style="text-align: center;">Magnitudo Technologies</h1>
         </div>
-        <div class="card-body" style="padding-top: 40%;">
+        <div class="card-body" style="padding-top: 30%;">
             <form name="form" [formGroup]="requiredForm" novalidate>
                 <div class="form-input">
-                    <input type="text" name="phoneNumber" class="form-control" placeholder="Enter your mobile number"
-                        formControlName="phoneNumber">
+                    <label class="form-label">Enter your mobile Number</label>
+                    <input type="text" name="phoneNumber" class="form-control" formControlName="phoneNumber">
                     <span class="d-block invalid-feedback" *ngIf="requiredForm.controls['phoneNumber'].invalid && requiredForm.controls['phoneNumber'].touched">Invalid
                         Phone Number format <!-- can move this to bundle--></span>
                 </div>
@@ -15,7 +15,8 @@
                     <button class="btn btn-secondary mt-4 small-btn" (click)="getOTP()">Get OTP</button>
                 </div>
                 <div class="form-input">
-                    <input type="text" name="otp" class="form-control" placeholder="Enter OTP" formControlName="otp">
+                    <label class="form-label">Enter OTP</label>
+                    <input type="text" name="otp" class="form-control" formControlName="otp">
                     <span class="d-block invalid-feedback" *ngIf="requiredForm.controls['otp'].invalid && requiredForm.controls['otp'].touched">Invalid
                         OTP <!-- can move this to bundle--></span>
                 </div>

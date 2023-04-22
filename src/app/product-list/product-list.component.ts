@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Inject } from '@angular/core';
 import productListData from './product-list.json';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface Product {
@@ -41,6 +41,7 @@ export class ProductListComponent {
   }
 
   openDialog(item:any): void {
+    debugger;
     const dialogRef = this.dialog.open(EditOtpModal, {
       width: '350px',
       data: item
@@ -51,13 +52,14 @@ export class ProductListComponent {
 @Component({
   selector: 'eidtotp-modal',
   templateUrl: 'editotp-modal.html',
+  providers: [ProductListComponent]
 })
 
 export class EditOtpModal {
-  constructor(public dialogRef: MatDialogRef<EditOtpModal>, 
-    private fb: FormBuilder) {
-      // this.onClickFunction.onTableEdit(item);
-    }
+  constructor(public productList: ProductListComponent, 
+    @Inject(MAT_DIALOG_DATA) public data: ProductListComponent, 
+    public dialogRef: MatDialogRef<EditOtpModal>, 
+    private fb: FormBuilder,) {}
 
   registerForm: FormGroup = this.fb.group({
     number: ['', [Validators.required, Validators.minLength(4), Validators.pattern("^((\\+91-?)|0)?[0-9]{4}$")]],
@@ -68,7 +70,11 @@ export class EditOtpModal {
   }
 
   editTableClose() {
-    // this.onClickFunction.onTableEdit();
+    this.productList.onTableEdit(this.data);
+    this.dialogRef.close();
   }
 
+  closeModal() {
+    this.dialogRef.close();
+  }
 }
