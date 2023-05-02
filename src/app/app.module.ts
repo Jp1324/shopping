@@ -25,7 +25,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { MatGridListModule } from '@angular/material/grid-list'
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { MatGridListModule } from '@angular/material/grid-list'
     CartComponent,
     BottomModal,
     EditOtpModal,
-    EditOtpModalInCart
+    EditOtpModalInCart,
   ],
 
   imports: [
@@ -58,7 +60,9 @@ import { MatGridListModule } from '@angular/material/grid-list'
     MatInputModule,
     MatDialogModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
 
   providers: [],

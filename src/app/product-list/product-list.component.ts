@@ -1,9 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject, ViewChild } from '@angular/core';
 import productListData from './product-list.json';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-interface Product {
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+
+export interface Product {
   id: Number;  
   name: String;  
   price: number;
@@ -12,6 +15,7 @@ interface Product {
   expireDate: String,
   isEdit: boolean
 }
+const products: Product[] = productListData;
 
 @Component({
   selector: 'app-product-list',
@@ -19,16 +23,16 @@ interface Product {
   styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent {
+export class ProductListComponent implements AfterViewInit {
 
   products: Product[] = productListData;
-  count = Object.keys(this.products).length;  
-  totalPrice = this.products.reduce((sum, item)=>sum + item.price,0);
+  count = Object.keys(products).length;  
+  totalPrice = products.reduce((sum, item)=>sum + item.price,0);
 
   constructor(public dialog: MatDialog) {}
 
   onTableEdit(item: any) {
-    this.products.forEach(element => {
+    products.forEach(element => {
       element.isEdit = false;
     });
     item.isEdit = true;
@@ -45,6 +49,16 @@ export class ProductListComponent {
       data: item
     });
   }
+
+  displayedColumns: string[] = ["id", "name", "price", "quantity", "expireDate", "isEdit"];
+  dataSource = new MatTableDataSource<Product>(products)
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 }
 
 @Component({

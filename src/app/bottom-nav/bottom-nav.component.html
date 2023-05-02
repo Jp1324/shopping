@@ -19,18 +19,16 @@
                     </span>
                 </div>
             </div>
-            <div class="row" style="text-align: center;">
-                <div class="col py-2">
-                    <button mat-raised-button (click)="openDialog()" style="background-color: #008e5b;color: white;">Help</button>
-                </div>
-                <div class="col py-2">
-                    <button mat-raised-button color="primary" routerLink="/offerPage">Offers</button>
-                </div>
-                <div class="col py-2">
-                    <button mat-raised-button  routerLink="/complimentsPage">Compliments</button>
-                </div>
-                <div class="col py-2">
-                    <button mat-raised-button class="btn btn-outline-dark btn-lg" routerLink="/checkOutPage">Checkout</button>
+            <div class="row" style="text-align: right;">
+                <div>
+                    <button mat-raised-button (click)="openDialog()"
+                        style="background-color: #008e5b;color: white; margin-right: 10px;margin-left: 10px;">Help</button>
+                    <button mat-raised-button color="primary" routerLink="/offerPage"
+                        style="margin-right: 10px;margin-left: 10px;">Offers</button>
+                    <button mat-raised-button routerLink="/complimentsPage"
+                        style="margin-right: 10px;margin-left: 10px;">Compliments</button>
+                    <button mat-raised-button class="btn btn-outline-dark btn-lg" routerLink="/checkOutPage"
+                        style="margin-right: 10px;margin-left: 10px; margin-top: 5px;">Checkout</button>
                 </div>
             </div>
         </div>
