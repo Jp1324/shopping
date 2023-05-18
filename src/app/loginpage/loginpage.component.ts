@@ -4,7 +4,9 @@ import { User } from './userModel';
 import { Observable } from 'rxjs';
 import { EsServiceService } from '../service/es-service.service';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { WebsocketService } from '../service/websocket.service';
+
 
 
 
@@ -21,6 +23,10 @@ export class LoginpageComponent implements OnInit {
   userInfo= {} as User;
   otp: any;
   requiredForm: FormGroup;
+  // websocket var
+  received = [];
+  content = '';
+  sent = [];
 
   private mobNo: Observable <any>;
   private mobNoData:any[];
@@ -29,8 +35,15 @@ export class LoginpageComponent implements OnInit {
   private domainURL:string;
 
   constructor(private fb: FormBuilder, private esService:EsServiceService,private http:HttpClient,
-    private router:Router) {
+    private router:Router, private WebsocketService: WebsocketService) {
       this.domainURL = esService.base_path;
+
+      // webSocet trial 
+      WebsocketService.messages.subscribe(msg => {
+        this.received.push(msg);
+        console.log("Response from websocket: " + msg);
+      });
+  
   }
   
   ngOnInit(){   
@@ -53,17 +66,28 @@ export class LoginpageComponent implements OnInit {
   }
 
   getOTP() {
-    console.log(this.requiredForm.get("phoneNumber")?.getRawValue());
     let otpData = {
       "phone": this.requiredForm.get("phoneNumber")?.getRawValue()
     }
 
-    this.mobNo = this.http.post(this.domainURL+'/login/genotpweb',JSON.stringify(otpData), this.header);
-    this.mobNo.subscribe( data => {
-      this.mobNoData = data;
-      console.log("otp Res >> " + JSON.stringify(this.mobNoData));
-    });
-    return false;
+    // websocket trial
+    let message = {
+      source: '',
+      content: ''
+    };
+    message.source = 'websocket trail 1st try';
+    message.content = otpData.phone;
+
+    this.sent.push(message);
+    this.WebsocketService.messages.next(message);
+
+    // http 
+    // this.mobNo = this.http.post(this.domainURL+'/login/genotpweb',JSON.stringify(otpData), this.header);
+    // this.mobNo.subscribe( data => {
+    //   this.mobNoData = data;
+    //   console.log("otp Res >> " + JSON.stringify(this.mobNoData));
+    // });
+    // return false;
   }
 
   checkOTP() {
